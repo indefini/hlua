@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["function","Wraps a type that implements `FnMut` so that it can be used by hlua."]],"struct":[["InsideCallback","Opaque type that represents the Lua context when inside a callback."]]});
