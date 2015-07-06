@@ -1,5 +1,6 @@
 #![feature(core)]
 #![feature(unboxed_closures)]
+#![feature(reflect_marker)]
 
 extern crate lua52_sys as ffi;
 extern crate libc;
@@ -258,8 +259,10 @@ impl<'lua> Lua<'lua> {
                          where I: Borrow<str>, V: Push<&'a mut Lua<'lua>>
     {
         let index = CString::new(index.borrow()).unwrap();
+        let val = self.lua.0.clone();
         value.push_to_lua(self).forget();
-        unsafe { ffi::lua_setglobal(self.lua.0, index.as_ptr()); }
+        //unsafe { ffi::lua_setglobal(self.lua.0, index.as_ptr()); }
+        unsafe { ffi::lua_setglobal(val, index.as_ptr()); }
     }
 
     /// Inserts an empty array, then loads it.
