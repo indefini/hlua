@@ -7,7 +7,7 @@ description = "Bindings for Lua 5.2"
 build = "build.rs"
 links = "lua"
 license = "MIT"
-repository = "https://github.com/tomaka/rust-hl-lua"
+repository = "https://github.com/indefini/hlua"
 
 [build-dependencies]
 pkg-config = "0.3"
